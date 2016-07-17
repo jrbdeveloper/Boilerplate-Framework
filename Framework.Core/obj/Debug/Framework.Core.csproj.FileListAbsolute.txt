@@ -1,0 +1,4 @@
+D:\Projects\Framework Template\Framework.Core\bin\Debug\Framework.Core.dll
+D:\Projects\Framework Template\Framework.Core\bin\Debug\Framework.Core.pdb
+D:\Projects\Framework Template\Framework.Core\obj\Debug\Framework.Core.dll
+D:\Projects\Framework Template\Framework.Core\obj\Debug\Framework.Core.pdb

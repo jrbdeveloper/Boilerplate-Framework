@@ -1,0 +1,13 @@
+D:\Projects\Framework Template\Framework.Infrastructure\bin\Debug\Framework.Infrastructure.dll
+D:\Projects\Framework Template\Framework.Infrastructure\bin\Debug\Framework.Infrastructure.pdb
+D:\Projects\Framework Template\Framework.Infrastructure\bin\Debug\Framework.Core.dll
+D:\Projects\Framework Template\Framework.Infrastructure\bin\Debug\Framework.Data.dll
+D:\Projects\Framework Template\Framework.Infrastructure\bin\Debug\Framework.Domain.dll
+D:\Projects\Framework Template\Framework.Infrastructure\bin\Debug\Ninject.dll
+D:\Projects\Framework Template\Framework.Infrastructure\bin\Debug\Framework.Core.pdb
+D:\Projects\Framework Template\Framework.Infrastructure\bin\Debug\Framework.Data.pdb
+D:\Projects\Framework Template\Framework.Infrastructure\bin\Debug\Framework.Domain.pdb
+D:\Projects\Framework Template\Framework.Infrastructure\bin\Debug\Ninject.xml
+D:\Projects\Framework Template\Framework.Infrastructure\obj\Debug\Framework.Infrastructure.csprojResolveAssemblyReference.cache
+D:\Projects\Framework Template\Framework.Infrastructure\obj\Debug\Framework.Infrastructure.dll
+D:\Projects\Framework Template\Framework.Infrastructure\obj\Debug\Framework.Infrastructure.pdb

@@ -1,0 +1,12 @@
+D:\Projects\Framework Template\Framework.Data\bin\Debug\Framework.Data.dll.config
+D:\Projects\Framework Template\Framework.Data\bin\Debug\Framework.Data.dll
+D:\Projects\Framework Template\Framework.Data\bin\Debug\Framework.Data.pdb
+D:\Projects\Framework Template\Framework.Data\bin\Debug\EntityFramework.dll
+D:\Projects\Framework Template\Framework.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Framework Template\Framework.Data\bin\Debug\Framework.Core.dll
+D:\Projects\Framework Template\Framework.Data\bin\Debug\Framework.Core.pdb
+D:\Projects\Framework Template\Framework.Data\bin\Debug\EntityFramework.xml
+D:\Projects\Framework Template\Framework.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Framework Template\Framework.Data\obj\Debug\Framework.Data.csprojResolveAssemblyReference.cache
+D:\Projects\Framework Template\Framework.Data\obj\Debug\Framework.Data.dll
+D:\Projects\Framework Template\Framework.Data\obj\Debug\Framework.Data.pdb
