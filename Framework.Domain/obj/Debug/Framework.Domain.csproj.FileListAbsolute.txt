@@ -1,7 +1,0 @@
-D:\Projects\Framework Template\Framework.Domain\bin\Debug\Framework.Domain.dll
-D:\Projects\Framework Template\Framework.Domain\bin\Debug\Framework.Domain.pdb
-D:\Projects\Framework Template\Framework.Domain\bin\Debug\Framework.Core.dll
-D:\Projects\Framework Template\Framework.Domain\bin\Debug\Framework.Core.pdb
-D:\Projects\Framework Template\Framework.Domain\obj\Debug\Framework.Domain.csprojResolveAssemblyReference.cache
-D:\Projects\Framework Template\Framework.Domain\obj\Debug\Framework.Domain.dll
-D:\Projects\Framework Template\Framework.Domain\obj\Debug\Framework.Domain.pdb
