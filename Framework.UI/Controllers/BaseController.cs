@@ -52,14 +52,14 @@ namespace Framework.UI.Controllers
 
     public static class ListExtensions
     {
-        public static IEnumerable<Car> FilterBySeat(this IEnumerable<Car> sequence, string filterValue)
+        public static ICollection<Car> FilterBySeat(this ICollection<Car> sequence, string filterValue)
         {
-            return sequence.Where(s => s.Seat.Equals(filterValue));
+            return sequence.Where(s => s.Seat.Equals(filterValue)).ToList();
         }
 
-        public static IEnumerable<Car> FilterBySteeringWheel(this IEnumerable<Car> sequence, string filterValue)
+        public static ICollection<Car> FilterBySteeringWheel(this ICollection<Car> sequence, string filterValue)
         {
-            return sequence.Where(s => s.SteeringWheel.Equals(filterValue));
+            return sequence.Where(s => s.SteeringWheel.Equals(filterValue)).ToList();
         }
     }
 
