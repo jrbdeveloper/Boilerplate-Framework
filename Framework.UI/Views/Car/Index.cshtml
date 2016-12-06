@@ -1,0 +1,33 @@
+﻿@model Framework.Core.ViewModels.CarViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="container-fluid" id="car-container">
+    <table class="display table table-condensed table-striped table-bordered" id="car-table">
+        <thead>
+            <tr>
+                <th>Seats</th>
+                <th>Steering Wheel</th>
+                <th>Engine</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="~/Scripts/Modules/car.module.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#car-container").Car();
+    });
+</script>

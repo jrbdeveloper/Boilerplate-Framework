@@ -1,72 +1,41 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web.Mvc;
 
 namespace Framework.UI.Controllers
 {
     public class BaseController : Controller
     {
+        //protected User CurrentUser { get; set; }
 
-        protected List<Car> GetAllCars()
+        //protected static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
+        protected ActionResult Error()
         {
-            var cars = new List<Car>();
-            cars.Add(new Car
-            {
-                Seat = "Leather",
-                SteeringWheel = "Full Controls",
-                Engine = "8 Cylindar"
-            });
-
-            cars.Add(new Car
-            {
-                Seat = "Leather",
-                SteeringWheel = "No Controls",
-                Engine = "8 Cylindar"
-            });
-
-            cars.Add(new Car
-            {
-                Seat = "Fabric",
-                SteeringWheel = "Some Controls",
-                Engine = "6 Cylindar"
-            });
-
-            cars.Add(new Car
-            {
-                Seat = "Fabric",
-                SteeringWheel = "No Controls",
-                Engine = "4 Cylindar"
-            });
-
-            cars.Add(new Car
-            {
-                Seat = "Fabric",
-                SteeringWheel = "No Controls",
-                Engine = "6 Cylindar"
-            });
-
-            return cars;
+            return View();
         }
 
-    }
-
-    public static class ListExtensions
-    {
-        public static ICollection<Car> FilterBySeat(this ICollection<Car> sequence, string filterValue)
+        protected void GetBuildVersion()
         {
-            return sequence.Where(s => s.Seat.Equals(filterValue)).ToList();
+            Assembly web = Assembly.GetExecutingAssembly();
+            AssemblyName webName = web.GetName();
+
+            ViewBag.BuildVersion = string.Format("Build Version: {0}", webName.Version.ToString());
         }
 
-        public static ICollection<Car> FilterBySteeringWheel(this ICollection<Car> sequence, string filterValue)
+        protected IEnumerable<SelectListItem> GetList<T>(IEnumerable<T> collection)
         {
-            return sequence.Where(s => s.SteeringWheel.Equals(filterValue)).ToList();
-        }
-    }
+            var list = from item in collection
+                       select new SelectListItem
+                       {
+                           //Text = item.text,
+                           //Value = item.value
+                       };
 
-    public class Car
-    {
-        public string Seat { get; set; }
-        public string SteeringWheel { get; set; }
-        public string Engine { get; set; }
+            var selectListItems = list as SelectListItem[] ?? list.ToArray();
+
+            return selectListItems;
+        }
     }
 }

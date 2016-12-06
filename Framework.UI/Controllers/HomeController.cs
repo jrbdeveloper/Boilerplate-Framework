@@ -6,8 +6,6 @@ namespace Framework.UI.Controllers
     {
         public ActionResult Index()
         {
-            var fabricSeatsWithNoSteeringWheelControls = GetAllCars().FilterBySeat("Fabric").FilterBySteeringWheel("No Controls").Count;
-
             return View();
         }
 
