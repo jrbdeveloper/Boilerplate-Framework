@@ -174,6 +174,13 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Modules\application.module.js" />
+    <Content Include="Scripts\Modules\change.tracker.module.js" />
+    <Content Include="Scripts\Modules\editor.module.js" />
+    <Content Include="Scripts\Modules\grid.module.js" />
+    <Content Include="Scripts\Modules\helpers.module.js" />
+    <Content Include="Scripts\Modules\navigation.module.js" />
+    <Content Include="Scripts\Modules\slider.module.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />

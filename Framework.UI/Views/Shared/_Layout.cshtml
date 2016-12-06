@@ -38,5 +38,9 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    @Html.Partial("_ProcessingModal")
+    @Html.Partial("_Modal")
+    @Html.Partial("_ConfirmModal")
 </body>
 </html>
