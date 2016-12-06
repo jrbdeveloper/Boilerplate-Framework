@@ -32,14 +32,7 @@
             frm.submit();
         });
     },
-    
-    Grid: function (myOptions) {
-        var grid = new $.custom.Grid();
-        grid.options = myOptions;
-
-        return grid;
-    },
-    
+       
     GetModel: function (id, api, async) {
         var model = this._get({ id: id }, api, async);
 
@@ -64,11 +57,6 @@
             }
         });
     },
-
-    GetConfiguration: function () {
-        this.options.Configuration = this._get({}, "/Configuration/Get/", false);
-        return this.options.Configuration;
-    },
     
     CreateIncrementer: function (ctrl) {
         var self = this;
@@ -86,36 +74,7 @@
         });
 
         return incrementer;
-    },
-
-    SubmitWithReason: function (ctrl, form, submitTo) {
-        var self = this;
-
-        // Get the list of reasons from the database
-        var reasons = self.GetModel("", "/TransferReason/GetAll", false);
-
-        //Create a select list control and insert the reason options
-        var selectList = $("<select name='TransferReasonID' id='TransferReasonID'></select>").append(document.createElement("option"));
-
-        $.each(reasons, function (i, data) {
-            var option = document.createElement("option");
-            option.text = data.Reason;
-            option.value = data.TransferReasonID;
-            $(option).appendTo(selectList);
-        });
-
-        var div = $("<div />").append("Please select a reason for this action.").append(selectList);
-
-        //show the modal
-        self.Helpers.ShowError("Choose a reaon", div, function () {
-
-            // Inject the select list into the form on the page to be submitted
-            selectList.prependTo(form).hide();
-
-            //Submit the form
-            self.Submit(ctrl, form, submitTo);
-        });
-    },
+    },    
     
     _get: function (data, api, async) {
         var self = this;
@@ -136,31 +95,7 @@
     },
 
     _registerEvents: function () {
-        var self = this;
-
-        $("#nav_back").on({
-            click: function () {
-                self.Helpers.ShowProcessing();
-
-                if (window.history.back() != undefined) {    
-                    window.history.back();
-                } else {
-                    self.Helpers.HideProcessing();
-                }
-            }
-        });
-
-        $("#nav_forward").on({
-            click: function () {
-                self.Helpers.ShowProcessing();
-
-                if (window.history.forward() != undefined) {
-                    window.history.forward();
-                } else {
-                    self.Helpers.HideProcessing();
-                }
-            }
-        });
+        var self = this;        
     },
     
     WriteLog: function (msg) {
