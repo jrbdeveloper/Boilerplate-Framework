@@ -16,11 +16,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            @foreach (var item in Model.Cars)
+            {
+                <tr>
+                    <td>@item.Seat</td>
+                    <td>@item.SteeringWheel</td>
+                    <td>@item.Engine</td>
+                </tr>
+            }            
         </tbody>
     </table>
 </div>
