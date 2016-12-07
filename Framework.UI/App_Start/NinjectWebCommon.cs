@@ -61,8 +61,7 @@ namespace Framework.UI.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Load(new DomainModule());
-            kernel.Load(new DataModule());
+            kernel.Load(new DomainModule(), new DataModule());
         }        
     }
 }
