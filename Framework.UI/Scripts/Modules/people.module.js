@@ -4,7 +4,6 @@
     _init: function () { },
 
     _create: function () {
-        alert("Created");
     },
 
     _registerEvents: function () { },

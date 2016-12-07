@@ -205,6 +205,7 @@
     <Content Include="Scripts\Modules\Helpers\helpers.module.js" />
     <Content Include="Scripts\Modules\Helpers\navigation.module.js" />
     <Content Include="Scripts\Modules\Helpers\slider.module.js" />
+    <Content Include="Scripts\Modules\people.module.js" />
     <Content Include="Scripts\Modules\template.module.js" />
     <Content Include="Scripts\tinymce\jquery.tinymce.min.js" />
     <Content Include="Scripts\tinymce\license.txt" />
@@ -312,6 +313,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="Views\ExceptionLog\Index.cshtml" />
+    <Content Include="Views\People\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
