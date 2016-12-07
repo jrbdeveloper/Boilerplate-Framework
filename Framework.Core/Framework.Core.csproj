@@ -41,15 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Data\ICarData.cs" />
+    <Compile Include="Contracts\Data\IExceptionLogData.cs" />
     <Compile Include="Contracts\Data\IPersonData.cs" />
     <Compile Include="Contracts\Domain\IPersonDomain.cs" />
-    <Compile Include="Entities\BaseEntity.cs" />
-    <Compile Include="Entities\Log.cs" />
+    <Compile Include="Contracts\Domain\ICarDomain.cs" />
+    <Compile Include="Contracts\Domain\IExceptionLogDomain.cs" />
+    <Compile Include="Enums\CarEngines.cs" />
     <Compile Include="Enums\HairStyle.cs" />
     <Compile Include="Helpers\StringCipher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\BaseModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\CarViewModel.cs" />
     <Compile Include="ViewModels\PersonViewModel.cs" />
+    <Compile Include="ViewModels\ExceptionLogViewModel.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,19 @@
+﻿using Ninject.Modules;
+using Framework.Core.Contracts.Data;
+using Framework.Data;
+
+namespace Framework.Infrastructure.IoCModules
+{
+    public class DataModule : NinjectModule
+    {
+        public override void Load()
+        {
+<<<<<<< HEAD
+            Bind<IPersonData>().To<PersonData>();
+=======
+            Bind<IExceptionLogData>().To<ExceptionLogData>();
+            Bind<ICarData>().To<CarData>();
+>>>>>>> b883c0f778d2f5cea28e777d62f00fe4308c5024
+        }
+    }
+}

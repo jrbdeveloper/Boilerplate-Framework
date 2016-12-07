@@ -9,6 +9,7 @@ namespace Framework.Infrastructure.IoCModules
         public override void Load()
         {
             Bind<IPersonDomain>().To<PersonDomain>();
+            Bind<ICarDomain>().To<CarDomain>();
         }
     }
 }
