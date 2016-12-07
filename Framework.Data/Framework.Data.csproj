@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="BaseData.cs" />
     <Compile Include="CarData.cs" />
+    <Compile Include="ExceptionLogData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

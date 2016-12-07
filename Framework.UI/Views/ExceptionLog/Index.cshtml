@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Framework.Core.ViewModels.ExceptionLogViewModel>
+
+@{
+    ViewBag.Title = "Exception Log";
+}
+
+<h1>Exception Log</h1>
+<hr />
+
+<div class="container-fluid table-responsive" id="exceptions-container">
+    <table class="display table table-striped table-bordered small" id="exceptions-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Thread)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Level)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Logger)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Message)
+                </th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="JavaScript:void(0);" id="@item.ID" class="viewBtn btn btn-default glyphicon glyphicon-eye-open"></a>
+                </td>
+                <td class="text-nowrap">
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Thread)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Level)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Logger)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+<script src="~/Scripts/Modules/exception.log.module.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#exceptions-container").ExceptionLog();
+    });
+</script>

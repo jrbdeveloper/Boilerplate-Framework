@@ -8,6 +8,7 @@ namespace Framework.Infrastructure.IoCModules
     {
         public override void Load()
         {
+            Bind<IExceptionLogDomain>().To<ExceptionLogDomain>();
             Bind<ICarDomain>().To<CarDomain>();
         }
     }

@@ -13,6 +13,7 @@ namespace Framework.Data
         {
             Mapper.Initialize(cfg =>
             {
+                //cfg.CreateMap<ExceptionLogViewModel, ExceptionLog>().ReverseMap();
                 //cfg.CreateMap<Car, CarViewModel>();
             });
         }

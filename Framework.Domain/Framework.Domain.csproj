@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
     <Compile Include="CarDomain.cs" />
+    <Compile Include="ExceptionLogDomain.cs" />
     <Compile Include="Helpers\Filters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
