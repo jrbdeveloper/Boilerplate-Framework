@@ -1,5 +1,6 @@
-﻿using Ninject.Modules;
-using System;
+﻿using Framework.Core.Contracts.Domain;
+using Framework.Domain;
+using Ninject.Modules;
 
 namespace Framework.Infrastructure.IoCModules
 {
@@ -7,7 +8,7 @@ namespace Framework.Infrastructure.IoCModules
     {
         public override void Load()
         {
-            throw new NotImplementedException();
+            Bind<IPersonDomain>().To<PersonDomain>();
         }
     }
 }

@@ -41,17 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Data\IPersonData.cs" />
+    <Compile Include="Contracts\Domain\IPersonDomain.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\Log.cs" />
+    <Compile Include="Enums\HairStyle.cs" />
     <Compile Include="Helpers\StringCipher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BaseModel.cs" />
+    <Compile Include="ViewModels\PersonViewModel.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contracts\Data\" />
-    <Folder Include="Contracts\Domain\" />
-    <Folder Include="Enums\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

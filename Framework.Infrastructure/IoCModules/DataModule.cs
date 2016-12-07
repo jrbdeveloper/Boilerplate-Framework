@@ -1,5 +1,6 @@
-﻿using System;
-using Ninject.Modules;
+﻿using Ninject.Modules;
+using Framework.Core.Contracts.Data;
+using Framework.Data;
 
 namespace Framework.Infrastructure.IoCModules
 {
@@ -7,7 +8,7 @@ namespace Framework.Infrastructure.IoCModules
     {
         public override void Load()
         {
-            throw new NotImplementedException();
+            Bind<IPersonData>().To<PersonData>();
         }
     }
 }

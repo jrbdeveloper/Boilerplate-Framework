@@ -1,0 +1,43 @@
+﻿@model Framework.Core.ViewModels.PersonViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>People</h2><hr />
+<div class="container-fluid" id="people-container">
+    <table class="display table table-condensed table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Height</th>
+                <th>Weight</th>
+                <th>Eye Color</th>
+                <th>Hair Color</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.People)
+            {
+                <tr>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Height.Feet'  @item.Height.Inches"</td>
+                    <td>@item.Weight lbs</td>
+                    <td>@item.EyeColor</td>
+                    <td>@item.Hair.Color</td>
+                    <td>@item.Age</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="~/Scripts/Modules/people.module.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#people-container").People();
+    });
+</script>
