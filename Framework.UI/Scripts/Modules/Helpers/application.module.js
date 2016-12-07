@@ -1,6 +1,5 @@
 ﻿$.widget("custom.Application", {
     options: {
-        Configuration: {},
         showlogs: false
     },
 
@@ -10,9 +9,8 @@
     },
 
     _create: function () {
-        this.Configuration = this.GetConfiguration();
         this.Tracker = $.custom.Tracker({ showlogs: this.options.showlogs });
-        this.Helpers = $.custom.Helpers();
+        this.Helpers = $.custom.Helpers({ showlogs: this.options.showlogs });
     },
 
     Cancel: function () {

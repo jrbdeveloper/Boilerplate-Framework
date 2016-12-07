@@ -19,4 +19,10 @@
             toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image preview',
         });
     },
+
+    _writeLog: function (msg) {
+        if (this.options.showlogs) {
+            console.log(msg);
+        }
+    },
 });

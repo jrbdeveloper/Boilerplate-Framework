@@ -1,9 +1,13 @@
 ﻿$.widget("custom.Helpers", {
     options: {},
 
-    _init: function () { },
+    _init: function () {
+        this._writeLog("Helpers Initialized");
+    },
 
-    _create: function () { },
+    _create: function () {
+        this._initializeControls();
+    },
 
     Sum: function (params) {
         var result = 0;
@@ -18,53 +22,51 @@
     },
 
     ShowError: function (title, message, callback) {
-        $("#alertModal .modal-title").html(title);
-        $("#alertModal .modal-body").html(message);
+        this.alertModalTitle.html(title);
+        this.alertModalBody.html(message);
 
         if (callback != undefined) {
-            $("#alertModal").modal({ backdrop: "static", keyboard: false }).one("click", "#modalOkBtn", callback);
+            this.alertModal.modal({ backdrop: "static", keyboard: false }).one("click", "#modalOkBtn", callback);
         } else {
-            $("#alertModal").modal();
+            this.alertModal.modal();
         }        
     },
 
     Confirm: function (title, message, callback) {
-        $("#confirmModal .modal-title").html(title);
-        $("#confirmModal .modal-body").html(message);
+        this.confirmModalTitle.html(title);
+        this.confirmModalBody.html(message);
 
-        $("#confirmModal").modal({ backdrop: "static", keyboard: false }).one("click", "#confirmOk", callback);
+        this.confirmModal.modal({ backdrop: "static", keyboard: false }).one("click", "#confirmOk", callback);
     },
 
     ShowProcessing: function () {
-        var $progress = $("#ProcessingModal");
-        var $status = $('.progress-bar');
         var count = 0;
         var interval;
 
-        $progress.modal({
+        this.ProcessingModal.modal({
             show: true,
             backdrop: 'static',
             keyboard: false
         });
 
-        $progress.on("shown.bs.modal", function () {
+        this.ProcessingModal.on("shown.bs.modal", function () {
             interval = setInterval(function () {
-                $status.css('width', (count += 3) + '%').attr('aria-valuenow', (count += 3));
+                this.ProgressBar.css('width', (count += 3) + '%').attr('aria-valuenow', (count += 3));
             }, 100);
         });
 
-        $progress.on("hidden.bs.modal", function () {
+        this.ProcessingModal.on("hidden.bs.modal", function () {
             clearInterval(interval);
-            $status.css('width', 0 + '%').attr('aria-valuenow', 0);
+            this.ProgressBar.css('width', 0 + '%').attr('aria-valuenow', 0);
         });
     },
 
     HideProcessing: function () {
-        $("#ProcessingModal").modal("hide");
+        this.ProcessingModal.modal("hide");
     },
 
     ClearFields: function () {
-        $(".form-control").val('');
+        this.formFields.val('');
     },
 
     ScrollTop: function () {
@@ -261,5 +263,26 @@
         $(element).addClass(cssClass);
 
         return element;
-    }
+    },
+
+    _initializeControls: function () {
+        this.alertModal = $("#alertModal");
+        this.alertModalTitle = $("#alertModal .modal-title");
+        this.alertModalBody = $("#alertModal .modal-body");
+
+        this.confirmModal = $("#confirmModal");
+        this.confirmModalTitle = $("#confirmModal .modal-title");
+        this.confirmModalBody = $("#confirmModal .modal-body");
+
+        this.ProcessingModal = $("#ProcessingModal");
+        this.ProgressBar = $('.progress-bar');
+
+        this.formFields = $(".form-control");
+    },
+
+    _writeLog: function (msg) {
+        if (this.options.showlogs) {
+            console.log(msg);
+        }
+    },
 });

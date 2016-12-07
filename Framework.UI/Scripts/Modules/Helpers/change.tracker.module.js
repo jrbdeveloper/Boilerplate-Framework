@@ -2,7 +2,7 @@
     options: { },
 
     _init: function () {
-        this._showLog("Tracker: Initialized");
+        this._writeLog("Tracker: Initialized");
     },
 
     _create: function () {
@@ -15,8 +15,8 @@
         var self = this;
         var hasChanges = false;
 
-        self._showLog("Tracker: Checking for changes", self.Tracker);
-        self._showLog("TRACKED CONTROLS: " + JSON.stringify(self.Tracker));
+        self._writeLog("Tracker: Checking for changes", self.Tracker);
+        self._writeLog("TRACKED CONTROLS: " + JSON.stringify(self.Tracker));
 
         $.each(self.Tracker, function (item) {
             if (self.Tracker.hasOwnProperty(item)) {
@@ -30,7 +30,7 @@
     },
 
     Reset: function () {
-        this._showLog("Tracker: Reseting");
+        this._writeLog("Tracker: Reseting");
         this.Tracker = new Object;
         this._setFieldsUnchanged();
     },
@@ -38,11 +38,11 @@
     _registerEvents: function () {
         var self = this;
 
-        self._showLog("Tracker: Registering events");
+        self._writeLog("Tracker: Registering events");
         
         $(".track").on({
             change: function () {
-                self._showLog("Tracker: A field changed", self.Tracker);
+                self._writeLog("Tracker: A field changed", self.Tracker);
                 self.Tracker[$(this).attr('id')] = true;
             }
         });
@@ -51,14 +51,14 @@
     _setFieldsUnchanged: function () {
         var self = this;
 
-        self._showLog("Tracker: Set Fields Unchanged", self.Tracker);
+        self._writeLog("Tracker: Set Fields Unchanged", self.Tracker);
 
         $('.track').each(function (item) {
             self.Tracker[$(item).attr('id')] = false;
         });
     },
 
-    _showLog: function (msg) {
+    _writeLog: function (msg) {
         if (this.options.showlogs) {
             console.log(msg);
         }
