@@ -17,7 +17,13 @@ namespace Framework.UI.Controllers
         {
             var model = new PersonViewModel
             {
-                People = _personDomain.GetAll()
+                People = _personDomain.GetByHeightAndFirst(new Measurement
+                {
+                    Feet = 5,
+                    Inches = 6
+                }, "Jim"),
+
+                PeopleCount = _personDomain.GetHeadCount()
             };
 
             return View(model);

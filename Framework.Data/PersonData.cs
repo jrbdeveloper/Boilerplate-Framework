@@ -7,6 +7,8 @@ namespace Framework.Data
 {
     public class PersonData : BaseData, IPersonData
     {
+        private List<PersonViewModel> _people;
+
         private List<PersonViewModel> people = new List<PersonViewModel>();
         private List<Measurement> Heights = new List<Measurement>();
         private List<Measurement> Lengths = new List<Measurement>();
@@ -93,7 +95,25 @@ namespace Framework.Data
 
         public List<PersonViewModel> GetAll()
         {
-            return people;
+            if (_people == null)
+            {
+                _people = people;
+            }
+
+            return _people;
+        }
+
+        public void Remove(PersonViewModel person)
+        {
+            _people.Remove(person);
+        }
+
+        public void Remove(List<PersonViewModel> people)
+        {
+            foreach (var person in people)
+            {
+                _people.Remove(person);
+            }
         }
 
         public PersonViewModel GetById(int id)
@@ -105,13 +125,22 @@ namespace Framework.Data
             return found;
         }
 
-        public List<PersonViewModel> GetByLastName(string lastName)
+        public List<PersonViewModel> GetByFirstName(string first)
         {
             var list = (from person in people
-                        where person.LastName.Equals(lastName)
+                        where person.LastName.Equals(first)
                         select person).ToList();
 
             return list;
         }
+
+        public List<PersonViewModel> GetByLastName(string last)
+        {
+            var list = (from person in people
+                        where person.LastName.Equals(last)
+                        select person).ToList();
+
+            return list;
+        }        
     }
 }

@@ -10,5 +10,11 @@ namespace Framework.Core.Contracts.Domain
         List<PersonViewModel> GetByLastName(string lastName);
 
         PersonViewModel GetById(int id);
+
+        List<PersonViewModel> GetByHeight(Measurement height);
+
+        int GetHeadCount();
+
+        List<PersonViewModel> GetByHeightAndFirst(Measurement height, string first);
     }
 }

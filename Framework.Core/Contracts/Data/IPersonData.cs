@@ -9,6 +9,12 @@ namespace Framework.Core.Contracts.Data
 
         PersonViewModel GetById(int id);
 
-        List<PersonViewModel> GetByLastName(string lastName);
+        List<PersonViewModel> GetByFirstName(string first);
+
+        List<PersonViewModel> GetByLastName(string last);
+
+        void Remove(PersonViewModel person);
+
+        void Remove(List<PersonViewModel> people);
     }
 }

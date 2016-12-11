@@ -22,6 +22,8 @@ namespace Framework.Core.ViewModels
         public int Age { get; set; }
 
         public List<PersonViewModel> People { get; set; }
+
+        public int PeopleCount { get; set; }
     }
 
     public class Hair
