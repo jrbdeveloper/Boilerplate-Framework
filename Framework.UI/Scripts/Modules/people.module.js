@@ -16,8 +16,8 @@
             allowSelect: true,
             fixedHeader: true,
             ajax: {
-                url: "",
-                dataSrc: ""
+                url: "api/people/",
+                dataSrc: "Cars"
             },
             textFilters: self.options.gridSettings.text_filters,
             listFilters: self.options.gridSettings.list_filters,

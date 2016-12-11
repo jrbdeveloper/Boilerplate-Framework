@@ -171,6 +171,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery.dataTables.css" />
+    <Content Include="Content\jquery.dataTables.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -181,7 +183,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="images\Sorting icons.psd" />
     <None Include="Scripts\Libraries\jquery-3.1.0.intellisense.js" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\sort_asc.png" />
+    <Content Include="images\sort_asc_disabled.png" />
+    <Content Include="images\sort_both.png" />
+    <Content Include="images\sort_desc.png" />
+    <Content Include="images\sort_desc_disabled.png" />
     <Content Include="Scripts\Libraries\bootstrap.js" />
     <Content Include="Scripts\Libraries\bootstrap.min.js" />
     <Content Include="Scripts\Libraries\jquery-3.1.0.js" />
@@ -192,6 +201,8 @@
     <Content Include="Scripts\Libraries\jquery-3.1.0.min.map" />
     <None Include="Scripts\Libraries\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\Libraries\jquery-ui.min.js" />
+    <Content Include="Scripts\Libraries\jquery.dataTables.js" />
+    <Content Include="Scripts\Libraries\jquery.dataTables.min.js" />
     <Content Include="Scripts\Libraries\jquery.validate.js" />
     <Content Include="Scripts\Libraries\jquery.validate.min.js" />
     <Content Include="Scripts\Libraries\jquery.validate.unobtrusive.js" />

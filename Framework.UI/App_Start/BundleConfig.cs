@@ -9,7 +9,8 @@ namespace Framework.UI
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/Libraries/jquery-3.1.0.min.js",
-                        "~/Scripts/Libraries/jquery-ui.min.js"));
+                        "~/Scripts/Libraries/jquery-ui.min.js",
+                        "~/Scripts/Libraries/jquery.dataTables.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/Libraries/jquery.validate*"));
@@ -23,8 +24,18 @@ namespace Framework.UI
                       "~/Scripts/Libraries/bootstrap.js",
                       "~/Scripts/Libraries/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/modules").Include(
+                "~/Scripts/Modules/Helpers/helpers.module.js",
+                "~/Scripts/Modules/Helpers/navigation.module.js",
+                "~/Scripts/Modules/Helpers/grid.module.js",
+                "~/Scripts/Modules/Helpers/exception.log.module.js",
+                "~/Scripts/Modules/Helpers/editor.module.js",
+                "~/Scripts/Modules/Helpers/change.tracker.module.js",
+                "~/Scripts/Modules/Helpers/application.module.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/jquery.dataTables.css",
                       "~/Content/site.css"));
         }
     }
