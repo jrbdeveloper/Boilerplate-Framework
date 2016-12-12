@@ -8,13 +8,15 @@ namespace Framework.Data
 {
     public class CarData : BaseData, ICarData
     {
-        public CarViewModel Create(int id, string seats, string steeringWheel, CarEngines engine)
+        public CarViewModel Create(int id, string make, string model, int year, string color, CarEngines engine)
         {
             var car = new CarViewModel
             {
                 ID = id,
-                Seat = seats,
-                SteeringWheel = steeringWheel,
+                Make = make,
+                Model = model,
+                Year = year,
+                Color = color,
                 Engine = engine
             };
 
@@ -25,11 +27,11 @@ namespace Framework.Data
         {
             var cars = new List<CarViewModel>();
 
-            cars.Add(Create(1, "Leather", "Full Controls", CarEngines.EightCylinder));
-            cars.Add(Create(2, "Leather", "No Controls", CarEngines.EightCylinder));
-            cars.Add(Create(3, "Fabric", "Some Controls", CarEngines.SixCylinder));
-            cars.Add(Create(4, "Fabric", "No Controls", CarEngines.FourCylinder));
-            cars.Add(Create(5, "Fabric", "No Controls", CarEngines.SixCylinder));
+            cars.Add(Create(1, "Dodge", "Challenger", 2010, "Black", CarEngines.EightCylinder));
+            cars.Add(Create(2, "Ford", "Mustange", 2015, "Red", CarEngines.EightCylinder));
+            cars.Add(Create(3, "Chevy", "Camero", 2016, "Yellow", CarEngines.SixCylinder));
+            cars.Add(Create(4, "Dodge", "Charger", 2017, "Orange", CarEngines.FourCylinder));
+            cars.Add(Create(5, "Chrysler", "300", 2005, "White", CarEngines.SixCylinder));
 
             return cars;
         }

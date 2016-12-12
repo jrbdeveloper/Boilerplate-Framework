@@ -7,9 +7,13 @@ namespace Framework.Core.ViewModels
     {
         public int ID { get; set; }
 
-        public string Seat { get; set; }
+        public string Make { get; set; }
 
-        public string SteeringWheel { get; set; }
+        public string Model { get; set; }
+
+        public int Year { get; set; }
+
+        public string Color { get; set; }
 
         public CarEngines Engine { get; set; }
 

@@ -6,14 +6,14 @@ namespace Framework.Domain
 {
     public static class Filters
     {
-        public static IEnumerable<CarViewModel> FilterBySeat(this IEnumerable<CarViewModel> sequence, string filterValue)
+        public static IEnumerable<CarViewModel> FilterByColor(this IEnumerable<CarViewModel> sequence, string filterValue)
         {
-            return sequence.Where(s => s.Seat.Equals(filterValue)).ToList();
+            return sequence.Where(s => s.Color.Equals(filterValue)).ToList();
         }
 
-        public static IEnumerable<CarViewModel> FilterBySteeringWheel(this IEnumerable<CarViewModel> sequence, string filterValue)
+        public static IEnumerable<CarViewModel> FilterByMake(this IEnumerable<CarViewModel> sequence, string filterValue)
         {
-            return sequence.Where(s => s.SteeringWheel.Equals(filterValue)).ToList();
+            return sequence.Where(s => s.Make.Equals(filterValue)).ToList();
         }
 
         public static IEnumerable<PersonViewModel> ByFirstName(this IEnumerable<PersonViewModel> list, string first)

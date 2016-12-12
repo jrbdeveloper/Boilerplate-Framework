@@ -14,7 +14,7 @@
                 dataSrc: ""
             },
             textFilters: [],
-            listFilters: [1, 2, 3],
+            listFilters: [1, 2, 3, 4],
             columns: [
                 {
                     name: "Selector",
@@ -29,9 +29,10 @@
                         return '<input name="ID" id="ID" type="checkbox" class="rowCheck" value="' + data + '">';
                     }
                 },
-                { name: "Seat", title: "Seat", data: "Seat", targets: [1], sortable: true, searchable: true, visible: true, className: "small" },
-                { name: "SteeringWheel", title: "Steering Wheel", data: "SteeringWheel", targets: [2], sortable: true, searchable: true, visible: true, className: "small" },
-                { name: "Engine", title: "Engine", data: "Engine", targets: [3], sortable: true, searchable: true, visible: true, className: "small" },
+                { name: "Make", title: "Make", data: "Make", targets: [1], sortable: true, searchable: true, visible: true, className: "small" },
+                { name: "Model", title: "Model", data: "Model", targets: [2], sortable: true, searchable: true, visible: true, className: "small" },
+                { name: "Year", title: "Year", data: "Year", targets: [3], sortable: true, searchable: true, visible: true, className: "small" },
+                { name: "Color", title: "Color", data: "Color", targets: [4], sortable: true, searchable: true, visible: true, className: "small" }
             ]
         });
     },

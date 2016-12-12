@@ -26,7 +26,7 @@ namespace Framework.Domain
 
         public IEnumerable<CarViewModel> GetFiltered()
         {
-            return GetAll().FilterBySeat("Fabric").FilterBySteeringWheel("No Controls");
+            return GetAll().FilterByColor("Fabric").FilterByMake("No Controls");
         }
     }
 }
