@@ -15,10 +15,7 @@ namespace Framework.UI.Controllers
 
         public ActionResult Index()
         {
-            var model = new CarViewModel
-            {
-                Cars = _carDomain.GetFiltered()
-            };
+            var model = new CarViewModel();
 
             return View(model);
         }
