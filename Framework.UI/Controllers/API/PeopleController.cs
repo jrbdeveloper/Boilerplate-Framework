@@ -1,14 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using Framework.Core.Contracts.Domain;
+using Framework.Core.ViewModels;
+using System.Collections.Generic;
 using System.Web.Http;
 
 namespace Framework.UI.Controllers.API
 {
     public class PeopleController : BaseApiController
     {
-        // GET: api/People
-        public IEnumerable<string> Get()
+        private readonly IPersonDomain _personDomain;
+
+        public PeopleController(IPersonDomain personDomain)
         {
-            return new string[] { "value1", "value2" };
+            _personDomain = personDomain;
+        }
+
+        // GET: api/People
+        public IEnumerable<PersonViewModel> Get()
+        {
+            return _personDomain.GetAll();
         }
 
         // GET: api/People/5

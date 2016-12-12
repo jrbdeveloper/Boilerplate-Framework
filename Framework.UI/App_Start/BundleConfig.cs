@@ -10,7 +10,11 @@ namespace Framework.UI
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/Libraries/jquery-3.1.0.min.js",
                         "~/Scripts/Libraries/jquery-ui.min.js",
-                        "~/Scripts/Libraries/jquery.dataTables.js"));
+                        "~/Scripts/Libraries/jquery.dataTables.js",
+                        "~/Scripts/Libraries/dataTables.buttons.js",
+                        "~/Scripts/Libraries/buttons.print.js",
+                        "~/Scripts/Libraries/buttons.bootstrap.js",
+                        "~/Scripts/Libraries/buttons.html5.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/Libraries/jquery.validate*"));
@@ -36,6 +40,8 @@ namespace Framework.UI
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/jquery.dataTables.css",
+                      "~/Content/buttons.bootstrap.css",
+                      "~/Content/buttons.dataTables.css",
                       "~/Content/site.css"));
         }
     }
