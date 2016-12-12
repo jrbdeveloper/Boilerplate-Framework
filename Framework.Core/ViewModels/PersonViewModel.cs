@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Framework.Core.ViewModels
 {
-    public class PersonViewModel
+    public class PersonViewModel : BaseViewModel
     {
         public int ID { get; set; }
 

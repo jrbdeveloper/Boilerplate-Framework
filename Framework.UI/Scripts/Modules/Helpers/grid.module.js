@@ -9,15 +9,13 @@
         listFilters: [],
         order: [1, "asc"],
         allowSelect: false,
-        fixedHeader: false,
+        fixedHeader: true,
         serverSide: false,
         enableExport: true,
         gridType: ''
     },
 
     table: {},
-
-    _init: function () { },
 
     _create: function () {        
         this.Helpers = $.custom.Helpers();
@@ -36,9 +34,9 @@
             fixedHeader: self.options.fixedHeader,
             aaSorting: [self.options.order],
             order: [self.options.order],
-            deferRender: true,
+            deferRender: false,
             scrollY: "50vh",
-            scrollX:"100%",
+            //scrollX:"100%",
             scrollCollapse: true,
             paging: true,
             lengthChange: true,
@@ -48,6 +46,7 @@
                 extend: 'collection',
                 text: 'Export',
                 autoClose: true,
+                className: "dt-button",
                 buttons: [
                     self._createButton("csv", "CSV"),
                     self._createButton("excel", "Excel"),
@@ -69,10 +68,10 @@
                         orderable: false,
                         searchable: false,
                         className: 'text-center nopadding',
-                        mDataProp: "PID",
+                        mDataProp: "ID",
                         render: function (data, type, full, meta) {
                             if (self.options.allowSelect) {
-                                return '<input name="PID" id="PID" type="checkbox" class="rowCheck" value="' + $(full[1]).html() + '">';
+                                return '<input name="ID" id="ID" type="checkbox" class="rowCheck" value="' + $(full[1]).html() + '">';
                             } else {
                                 return data;
                             }
@@ -110,9 +109,9 @@
                                     });
 
                                 column.data().unique().sort().each(function (d, j) {
-                                    if (Number.isFinite(d)) {
-                                        d = d.toFixed(2);
-                                    }
+                                    //if (Number.isFinite(d)) {
+                                    //    d = d.toFixed(2);
+                                    //}
 
                                     if (d && d.indexOf && d.indexOf("href") > 0) {
                                         list.append('<option value="' + $(d).text() + '">' + $(d).text() + '</option>');
@@ -125,7 +124,7 @@
                     });
                 }
 
-                my.api().columns.adjust().draw();
+                my.api().draw();
 
                 self._initializeControls();
                 self._registerEvents();
@@ -213,6 +212,7 @@
             text: text,
             orientation: layout,
             columns: ':all',
+            className: 'dt-button',
             exportOptions: {
                 rows: '.selected',
                 modifier: {

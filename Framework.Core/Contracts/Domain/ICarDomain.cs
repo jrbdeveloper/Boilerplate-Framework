@@ -8,5 +8,7 @@ namespace Framework.Core.Contracts.Domain
         IEnumerable<CarViewModel> GetAll();
 
         IEnumerable<CarViewModel> GetFiltered();
+
+        CarViewModel GetById(int id);
     }
 }

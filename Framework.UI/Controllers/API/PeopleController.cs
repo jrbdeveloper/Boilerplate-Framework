@@ -13,17 +13,15 @@ namespace Framework.UI.Controllers.API
         {
             _personDomain = personDomain;
         }
-
-        // GET: api/People
+        
         public IEnumerable<PersonViewModel> Get()
         {
             return _personDomain.GetAll();
         }
-
-        // GET: api/People/5
-        public string Get(int id)
+        
+        public PersonViewModel Get(int id)
         {
-            return "value";
+            return _personDomain.GetById(id);
         }
 
         // POST: api/People

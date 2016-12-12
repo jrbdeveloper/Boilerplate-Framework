@@ -19,6 +19,11 @@ namespace Framework.Domain
             return _carData.GetAll();
         }
 
+        public CarViewModel GetById(int id)
+        {
+            return _carData.GetById(id);
+        }
+
         public IEnumerable<CarViewModel> GetFiltered()
         {
             return GetAll().FilterBySeat("Fabric").FilterBySteeringWheel("No Controls");

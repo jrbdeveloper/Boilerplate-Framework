@@ -1,31 +1,15 @@
 ﻿@model Framework.Core.ViewModels.CarViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Cars";
 }
 
-<h2>Index</h2>
+<h2>Cars</h2><hr />
 
 <div class="container-fluid" id="car-container">
-    <table class="display table table-condensed table-striped table-bordered" id="car-table">
-        <thead>
-            <tr>
-                <th>Seats</th>
-                <th>Steering Wheel</th>
-                <th>Engine</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Cars)
-            {
-                <tr>
-                    <td>@item.Seat</td>
-                    <td>@item.SteeringWheel</td>
-                    <td>@item.Engine</td>
-                </tr>
-            }            
-        </tbody>
-    </table>
+    <div id="table_container">
+        <table class="display table table-condensed table-striped table-bordered" id="grid"></table>
+    </div>
 </div>
 
 <script src="~/Scripts/Modules/car.module.js"></script>
