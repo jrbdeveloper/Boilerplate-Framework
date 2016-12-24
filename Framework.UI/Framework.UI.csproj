@@ -225,6 +225,7 @@
     <Content Include="Scripts\Modules\Helpers\grid.module.js" />
     <Content Include="Scripts\Modules\Helpers\helpers.module.js" />
     <Content Include="Scripts\Modules\Helpers\navigation.module.js" />
+    <Content Include="Scripts\Modules\Helpers\picklist.module.js" />
     <Content Include="Scripts\Modules\Helpers\slider.module.js" />
     <Content Include="Scripts\Modules\people.module.js" />
     <Content Include="Scripts\Modules\template.module.js" />
