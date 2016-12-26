@@ -5,6 +5,8 @@
     _init: function () {
         var self = this;
 
+        $("#PickList").PickList({ ListLocation: "/api/car" });
+
         self.Grid = $("#grid").empty().Grid({
             showFilters: true,
             allowSelect: true,

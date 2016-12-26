@@ -6,12 +6,15 @@
 
 <h2>Cars</h2><hr />
 
-<div class="container-fluid" id="car-container">
+<div class="container-fluid" id="car-container">    
+    <div id="PickList" class="container-fluid"></div>
+
     <div id="table_container">
         <table class="display table table-condensed table-striped table-bordered" id="grid"></table>
     </div>
 </div>
 
+<script src="~/Scripts/Modules/Helpers/picklist.module.js"></script>
 <script src="~/Scripts/Modules/car.module.js"></script>
 <script>
     $(document).ready(function () {

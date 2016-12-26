@@ -8,6 +8,13 @@
     <p><a href="https://github.com/jrbdeveloper/Boilerplate-Framework" class="btn btn-primary btn-lg">On GitHub &raquo;</a></p>
 </div>
 
+<script src="~/Scripts/Modules/Helpers/picklist.module.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#PickList").PickList({ ListLocation: "/api/car" });
+    });
+</script>
+
 <div class="row">
     <div class="col-md-4">
         <h2>Architecture</h2>

@@ -77,12 +77,12 @@
     _get: function (data, api, async) {
         var self = this;
         var ret;
-        
+
         $.ajax({
             method: "GET",
             url: api,
             dataType: "json",
-            data: data,
+            data: data.id != null ? data : "",
             async: async,
         }).done(function (result) {
             ret = result;
