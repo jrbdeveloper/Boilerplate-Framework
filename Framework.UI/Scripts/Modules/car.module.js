@@ -5,14 +5,21 @@
     _init: function () {
         var self = this;
 
-        $("#PickList").PickList({ ListLocation: "/api/car" });
+        $("#PickList").PickList({
+            Ajax: {
+                url: "/api/car",
+                data: ""
+            },
+            ActiveLabel: "Active",
+            InactiveLabel: "Inactive"
+        });
 
         self.Grid = $("#grid").empty().Grid({
             showFilters: true,
             allowSelect: true,
             fixedHeader: true,
             ajax: {
-                url: "/api/car/",
+                url: "/api/car/getcars/",
                 dataSrc: ""
             },
             textFilters: [],

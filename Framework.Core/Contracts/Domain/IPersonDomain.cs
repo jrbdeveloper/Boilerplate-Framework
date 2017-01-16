@@ -5,16 +5,16 @@ namespace Framework.Core.Contracts.Domain
 {
     public interface IPersonDomain
     {
-        List<PersonViewModel> GetAll();
+        IEnumerable<PersonViewModel> GetAll();
 
-        List<PersonViewModel> GetByLastName(string lastName);
+        IEnumerable<PersonViewModel> GetByLastName(string lastName);
 
         PersonViewModel GetById(int id);
 
-        List<PersonViewModel> GetByHeight(Measurement height);
+        IEnumerable<PersonViewModel> GetByHeight(Measurement height);
 
         int GetHeadCount();
 
-        List<PersonViewModel> GetByHeightAndFirst(Measurement height, string first);
+        IEnumerable<PersonViewModel> GetByHeightAndFirst(Measurement height, string first);
     }
 }

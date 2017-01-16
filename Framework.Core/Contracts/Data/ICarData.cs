@@ -10,6 +10,8 @@ namespace Framework.Core.Contracts.Data
 
         IEnumerable<CarViewModel> GetAll();
 
+        IEnumerable<ListItemModel> GetCars();
+
         CarViewModel GetById(int id);
     }
 }

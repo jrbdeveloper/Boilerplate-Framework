@@ -14,14 +14,14 @@ namespace Framework.UI.Controllers.API
             _carDomain = carDomain;
         }
         
-        public IEnumerable<CarViewModel> Get()
+        public IEnumerable<ListItemModel> Get()
         {
-            return _carDomain.GetAll();
+            return _carDomain.GetCars();
         }
 
-        public CarViewModel Get(int id)
+        public IEnumerable<CarViewModel> GetCars()
         {
-            return _carDomain.GetById(id);
+            return _carDomain.GetAll();
         }
 
         // POST: api/Car

@@ -42,6 +42,7 @@ namespace Framework.UI
                       "~/Content/jquery.dataTables.css",
                       "~/Content/buttons.bootstrap.css",
                       "~/Content/buttons.dataTables.css",
+                      "~/Content/picklist.css",
                       "~/Content/site.css"));
         }
     }

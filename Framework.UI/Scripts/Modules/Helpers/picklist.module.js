@@ -1,28 +1,42 @@
-﻿$.widget("custom.PickList", {
+﻿$.widget("widgets.PickList", {
     options: {
-        selected: [],
-        ListLocation: ""
+        ActiveLabel: "",
+        InactiveLabel: "",
+        Ajax: {
+            url: "",
+            data: ""
+        },
+        Data: []
     },
 
     _init: function () {
-        this._loadInactiveList();
+        this._load();
+        this._registerEvents();
     },
 
-    _create: function () {        
-        this.Application = Singleton.getInstance();
+    _load: function () {
         this._initializeControls();
-        this._loadTemplate();
-        this._registerEvents();
+
+        if (this.options.InactiveLabel != "" && this.options.ActiveLabel != "") {
+            $(this.InactiveContainer).append(this.InactiveLabel);
+            $(this.ActiveContainer).append(this.ActiveLabel);
+            $(this.ButtonContainer).append("<br>");
+        }
+
+        $(this.InactiveContainer).append(this.InactiveItems);
+        $(this.ButtonContainer).append(this.IncludeButton);
+        $(this.ButtonContainer).append(this.ExcludeButton);
+        $(this.ActiveContainer).append(this.ActiveItems);
+
+        $(this.element).append(this.InactiveContainer);
+        $(this.element).append(this.ButtonContainer);
+        $(this.element).append(this.ActiveContainer);
+
+        this._loadList();
     },
 
     _registerEvents: function () {
         var self = this;
-
-        //self.SaveBtn.on({
-        //    click: function () {
-        //        $("#ActiveItems option").prop("selected", "true");
-        //    }
-        //});
 
         $(self.IncludeButton).on({
             click: function () {
@@ -37,19 +51,58 @@
         });
     },
 
-    _getValues: function (ctrl) {
-        var valuesArray = ctrl.map(function () {
-            return this.value;
-        }).get();
+    _initializeControls: function () {
+        var self = this;
 
-        return valuesArray;
+        self.InactiveLabel = self._createControl({
+            type: "label", cssClass: "",
+            text: self.options.InactiveLabel,
+            value: self.options.InactiveLabel,
+            html: self.options.InactiveLabel
+        });
+
+        self.ActiveLabel = self._createControl({
+            type: "label", cssClass: "",
+            text: self.options.ActiveLabel,
+            value: self.options.ActiveLabel,
+            html: self.options.ActiveLabel
+        });
+
+        self.InactiveContainer = self._createControl({ type: "div", id: "inactive-container", cssClass: "list-container" });
+        self.InactiveItems = self._createControl({ type: "select", id: "InactiveItems", cssClass: "control", multiple: "multiple" });
+
+        self.ButtonContainer = self._createControl({ type: "div", id: "button-container", cssClass: "button-container" });
+        self.IncludeButton = self._createControl({ type: "button", id: "include-button", cssClass: "button button-default", text: ">" });
+        self.ExcludeButton = self._createControl({ type: "button", id: "exclude-button", cssClass: "button button-default", text: "<" });
+
+        self.ActiveContainer = self._createControl({ type: "div", id: "active-container", cssClass: "list-container" });
+        self.ActiveItems = self._createControl({ type: "select", id: "ActiveItems", cssClass: "control", multiple: "multiple" });
+    },
+
+    _loadList: function () {
+        var self = this;
+        var list = [];
+
+        if (self.options.Data.length > 0) {
+            list = self.options.Data;
+        }
+
+        if (this.options.Ajax.url != "") {
+            list = this._getModel(this.options.Ajax, false);
+        }
+
+        if (list.length > 0) {
+            $.each(list, function (index, item) {
+                $("#InactiveItems").append(self._createControl({ type: "option", value: item.Value, text: item.Text }));
+            });
+        }
     },
 
     _include: function (selectedItems, savedItems, destination) {
         var self = this;
 
         $.each(selectedItems, function (index, item) {
-            var option = self._createOption(item);
+            var option = self._createControl({ type: "option", text: item.text, value: item.value });
 
             if ($.inArray($(item).val(), self._getValues(savedItems)) == -1) {
                 $(option).appendTo(destination);
@@ -62,7 +115,7 @@
         var self = this;
 
         $.each(selectedItems, function (index, item) {
-            var option = self._createOption(item);
+            var option = self._createControl({ type: "option", text: item.text, value: item.value });
 
             if ($.inArray($(item).val(), self._getValues(savedItems)) == -1) {
                 $(option).prependTo(destination);
@@ -71,83 +124,50 @@
         });
     },
 
-    _loadInactiveList: function () {
-        var self = this;
-        var inactive = this.Application.GetModel(null, this.options.ListLocation, false);
+    _getModel: function (ajax, async) {
+        var ret;
 
-        $.each(inactive, function (index, item) {
-            $("#InactiveItems").append(self._newOption(item.ID, item.Model));
+        $.ajax({
+            method: "GET",
+            url: ajax.url,
+            dataType: "json",
+            data: ajax.data,
+            async: async,
+        }).done(function (result) {
+            ret = result;
+        }).fail(function (text, msg) {
         });
+
+        return ret;
     },
 
-    _initializeControls: function () {
-        //this.SaveBtn = $("#saveBtn");
+    _getValues: function (ctrl) {
+        var valuesArray = ctrl.map(function () {
+            return this.value;
+        }).get();
+
+        return valuesArray;
     },
 
-    _createButton: function (id, cssClass, text) {
-        var button = document.createElement("button");
+    _createControl: function (props) {
+        if (props.type != '') {
+            var control = document.createElement(props.type);
+        } else {
+            var control = document.createElement("text");
+        }
 
-        $(button).prop("id", id);
-        $(button).prop("class", cssClass);
-        $(button).html(text);
+        $(control).prop("name", props.name);
+        $(control).prop("id", props.id);
+        $(control).prop("class", props.cssClass);
+        $(control).prop("value", props.value);
+        $(control).prop("text", props.text);
+        $(control).prop("multiple", props.multiple);
+        $(control).val(props.value);
 
-        return button;
-    },
-
-    _createContainer: function (id, cssClass) {
-        var container = document.createElement("div");
-
-        $(container).prop("id", id);
-        $(container).prop("class", cssClass);
-
-        return container;
-    },
-
-    _createSelect: function (id) {
-        var select = document.createElement("select");
-
-        $(select).prop("id", id);
-        $(select).prop("class", "form-control");
-        $(select).prop("multiple", "multiple");
-
-        return select;
-    },
-
-    _createOption: function (ctrl) {
-        var option = document.createElement("option");
-
-        option.text = ctrl.text;
-        option.value = ctrl.value;
-
-        return option;
-    },
-
-    _newOption: function (value, text) {
-        var control = document.createElement("option");
-
-        control.text = text;
-        control.value = value;
+        if (props.type == "label" || props.type == "button") {
+            $(control).html(props.text);
+        }
 
         return control;
-    },
-
-    _loadTemplate: function () {
-        this.InactiveContainer = this._createContainer("inactive-container", "col-lg-3");
-        this.InactiveItems = this._createSelect("InactiveItems");
-        $(this.InactiveContainer).append(this.InactiveItems);
-
-        this.ButtonContainer = this._createContainer("button-container", "col-lg-1 text-center");
-        this.IncludeButton = this._createButton("include-button", "btn btn-default", ">");
-        this.ExcludeButton = this._createButton("exclude-button", "btn btn-default", "<");
-        $(this.ButtonContainer).append(this.IncludeButton);
-        $(this.ButtonContainer).append(this.ExcludeButton);
-
-        this.ActiveContainer = this._createContainer("active-container", "col-lg-3");
-        this.ActiveItems = this._createSelect("ActiveItems");
-        $(this.ActiveContainer).append(this.ActiveItems);
-        
-        $(this.element).append(this.InactiveContainer);
-        $(this.element).append(this.ButtonContainer);
-        $(this.element).append(this.ActiveContainer);
     },
 });

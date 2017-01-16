@@ -8,9 +8,11 @@ namespace Framework.Data
 {
     public class CarData : BaseData, ICarData
     {
+        private IEnumerable<CarViewModel> _allCars;
+
         public CarViewModel Create(int id, string make, string model, int year, string color, CarEngines engine)
         {
-            var car = new CarViewModel
+            return new CarViewModel
             {
                 ID = id,
                 Make = make,
@@ -19,26 +21,37 @@ namespace Framework.Data
                 Color = color,
                 Engine = engine
             };
-
-            return car;
         }
 
         public  IEnumerable<CarViewModel> GetAll()
         {
-            var cars = new List<CarViewModel>();
+            if (_allCars == null)
+            {
+                var cars = new List<CarViewModel>();
 
-            cars.Add(Create(1, "Dodge", "Challenger", 2010, "Black", CarEngines.EightCylinder));
-            cars.Add(Create(2, "Ford", "Mustange", 2015, "Red", CarEngines.EightCylinder));
-            cars.Add(Create(3, "Chevy", "Camero", 2016, "Yellow", CarEngines.SixCylinder));
-            cars.Add(Create(4, "Dodge", "Charger", 2017, "Orange", CarEngines.FourCylinder));
-            cars.Add(Create(5, "Chrysler", "300", 2005, "White", CarEngines.SixCylinder));
+                cars.Add(Create(1, "Dodge", "Challenger", 2010, "Black", CarEngines.EightCylinder));
+                cars.Add(Create(2, "Ford", "Mustange", 2015, "Red", CarEngines.EightCylinder));
+                cars.Add(Create(3, "Chevy", "Camero", 2016, "Yellow", CarEngines.SixCylinder));
+                cars.Add(Create(4, "Dodge", "Charger", 2017, "Orange", CarEngines.FourCylinder));
+                cars.Add(Create(5, "Chrysler", "300", 2005, "White", CarEngines.SixCylinder));
 
-            return cars;
+                _allCars = cars;
+            }
+
+            return _allCars;            
         }
 
         public CarViewModel GetById(int id)
         {
             return GetAll().SingleOrDefault(i => i.ID.Equals(id));
+        }
+
+        public IEnumerable<ListItemModel> GetCars()
+        {
+            return GetAll().Select(i => new ListItemModel {
+                Text = i.Model,
+                Value = i.ID.ToString()
+            });
         }
     }
 }

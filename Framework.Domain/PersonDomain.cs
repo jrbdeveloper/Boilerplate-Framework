@@ -9,23 +9,29 @@ namespace Framework.Domain
     public class PersonDomain : BaseModel, IPersonDomain
     {
         private readonly IPersonData _personData;
+        private IEnumerable<PersonViewModel> _people;
 
         public PersonDomain(IPersonData personData)
         {
             _personData = personData;
         }
 
-        public List<PersonViewModel> GetAll()
+        public IEnumerable<PersonViewModel> GetAll()
         {
-            return _personData.GetAll();
+            if (_people == null)
+            {
+                _people = _personData.GetAll();
+            }
+
+            return _people;
         }
 
         public int GetHeadCount()
         {
-            return GetAll().Count;
+            return GetAll().Count();
         }
 
-        public List<PersonViewModel> GetByFirstName(string first)
+        public IEnumerable<PersonViewModel> GetByFirstName(string first)
         {
             var people = GetAll().ByFirstName(first).ToList();
 
@@ -34,7 +40,7 @@ namespace Framework.Domain
             return people;
         }
 
-        public List<PersonViewModel> GetByLastName(string last)
+        public IEnumerable<PersonViewModel> GetByLastName(string last)
         {
             var people = GetAll().ByLastName(last).ToList();
 
@@ -48,7 +54,7 @@ namespace Framework.Domain
             return _personData.GetById(id);
         }
 
-        public List<PersonViewModel> GetByHeightAndFirst(Measurement height, string first)
+        public IEnumerable<PersonViewModel> GetByHeightAndFirst(Measurement height, string first)
         {
             var people = GetAll().ByFirstName(first).ByHeight(new Measurement
             {
@@ -61,7 +67,7 @@ namespace Framework.Domain
             return people;
         }
 
-        public List<PersonViewModel> GetByHeight(Measurement height)
+        public IEnumerable<PersonViewModel> GetByHeight(Measurement height)
         {
             var people = GetAll().ByHeight(new Measurement
             {
