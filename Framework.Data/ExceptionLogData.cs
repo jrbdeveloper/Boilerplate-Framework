@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Framework.Core.Contracts.Data;
+﻿using Framework.Core.Contracts.Data;
 using Framework.Core.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
