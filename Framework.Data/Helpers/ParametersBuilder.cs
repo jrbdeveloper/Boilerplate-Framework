@@ -1,7 +1,6 @@
 ﻿using Dapper;
-using System.Data;
 
-namespace Framework.Data
+namespace Framework.Data.Helpers
 {
     public static class ParametersBuilder
     {

@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Framework.Core.Contracts.Data;
 using Framework.Core.ViewModels;
+using Framework.Data.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -62,7 +62,7 @@
     <Compile Include="BaseData.cs" />
     <Compile Include="CarData.cs" />
     <Compile Include="DbScripts\DbScripts.People.cs" />
-    <Compile Include="DbScripts\ParametersBuilder.cs" />
+    <Compile Include="Helpers\ParametersBuilder.cs" />
     <Compile Include="PersonData.cs" />
     <Compile Include="ExceptionLogData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
