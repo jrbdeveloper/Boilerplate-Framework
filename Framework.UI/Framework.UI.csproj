@@ -348,6 +348,8 @@
     <Content Include="Views\People\Index.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
+    <Content Include="Views\People\Details.cshtml" />
+    <Content Include="Views\People\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

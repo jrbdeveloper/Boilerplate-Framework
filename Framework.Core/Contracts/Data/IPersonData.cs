@@ -13,8 +13,8 @@ namespace Framework.Core.Contracts.Data
 
         List<PersonViewModel> GetByLastName(string last);
 
-        void Remove(PersonViewModel person);
+        void Save(PersonViewModel person);
 
-        void Remove(List<PersonViewModel> people);
+        void Delete(int id);
     }
 }

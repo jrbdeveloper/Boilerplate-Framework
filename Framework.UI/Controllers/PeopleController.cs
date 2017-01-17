@@ -15,18 +15,24 @@ namespace Framework.UI.Controllers
 
         public ActionResult Index()
         {
-            var model = new PersonViewModel
-            {
-                //People = _personDomain.GetByHeightAndFirst(new Measurement
-                //{
-                //    Feet = 5,
-                //    Inches = 6
-                //}, "Jim"),
+            return View();
+        }
 
-                //PeopleCount = _personDomain.GetHeadCount()
-            };
+        public ActionResult Create()
+        {
+            return View("Details");
+        }
 
-            return View(model);
+        public ActionResult Details(int id)
+        {
+            return View(_personDomain.GetById(id));
+        }
+
+        public ActionResult Save(PersonViewModel model)
+        {
+            _personDomain.Save(model);
+
+            return RedirectToAction("Index");
         }
     }
 }

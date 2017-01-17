@@ -1,13 +1,16 @@
-﻿@model Framework.Core.ViewModels.PersonViewModel
-
-@{
+﻿@{
     ViewBag.Title = "People";
 }
 
 <h2>People</h2><hr />
 
-<div class="container-fluid" id="people-container">    
-    <div id="table_container">
+<div class="container-fluid" id="people-container">  
+    
+    <div class="row">
+        <button id="create-person" class="btn btn-primary">Create New Person</button>
+    </div><br />
+
+    <div id="table_container" class="row">
         <table class="display table table-condensed table-striped table-bordered" id="grid"></table>
     </div>
 </div>

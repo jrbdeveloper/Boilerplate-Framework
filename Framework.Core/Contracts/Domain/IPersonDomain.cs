@@ -11,10 +11,10 @@ namespace Framework.Core.Contracts.Domain
 
         PersonViewModel GetById(int id);
 
-        IEnumerable<PersonViewModel> GetByHeight(Measurement height);
-
         int GetHeadCount();
 
-        IEnumerable<PersonViewModel> GetByHeightAndFirst(Measurement height, string first);
+        void Save(PersonViewModel person);
+
+        void Delete(int id);
     }
 }

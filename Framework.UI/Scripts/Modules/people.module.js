@@ -15,7 +15,7 @@
                 dataType: 'json'
             },
             textFilters: [],
-            listFilters: [1, 2, 3, 4, 5, 6, 7],
+            listFilters: [1, 2, 3, 4, 5],
             columns: [
                 {
                     name: "Selector",
@@ -30,13 +30,23 @@
                         return '<input name="ID" id="ID" type="checkbox" class="rowCheck" value="' + data + '">';
                     }
                 },
-                { name: "FirstName", title: "First Name", data: "FirstName", targets: [1], sortable: true, searchable: true, visible: true, className: "small" },
+                {
+                    name: "FirstName",
+                    title: "First Name",
+                    data: "FirstName",
+                    targets: [1],
+                    sortable: true,
+                    searchable: true,
+                    visible: true,
+                    className: "small",
+                    render: function (data, type, full, meta) {
+                        return '<a href="people/details/' + full.ID + '">' + data + '</a>';
+                    }
+                },
                 { name: "LastName", title: "Last Name", data: "LastName", targets: [2], sortable: true, searchable: true, visible: true, className: "small" },
-                { name: "Height", title: "Height", data: "Height.Feet", targets: [3], sortable: true, searchable: true, visible: true, className: "small" },
+                { name: "Height", title: "Height", data: "Height", targets: [3], sortable: true, searchable: true, visible: true, className: "small" },
                 { name: "Weight", title: "Weight", data: "Weight", targets: [4], sortable: true, searchable: true, visible: true, className: "small" },
-                { name: "EyeColor", title: "Eye Color", data: "EyeColor", targets: [5], sortable: true, searchable: true, visible: true, className: "small" },
-                { name: "Hair", title: "Hair Color", data: "Hair.Color", targets: [6], sortable: true, searchable: true, visible: true, className: "small" },
-                { name: "Age", title: "Age", data: "Age", targets: [7], sortable: true, searchable: true, visible: true, className: "small" },
+                { name: "Age", title: "Age", data: "Age", targets: [5], sortable: true, searchable: true, visible: true, className: "small" },
             ]
         });
     },
@@ -49,6 +59,12 @@
 
     _registerEvents: function () {
         var self = this;
+
+        $("#create-person").on({
+            click: function () {
+                return location.href = 'people/details/0';
+            }
+        });
     },
 
     _initializeControls: function () {

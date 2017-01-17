@@ -3,13 +3,13 @@ using Framework.Core.Contracts.Domain;
 using Framework.Core.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Framework.Domain
 {
     public class PersonDomain : BaseModel, IPersonDomain
     {
         private readonly IPersonData _personData;
-        private IEnumerable<PersonViewModel> _people;
 
         public PersonDomain(IPersonData personData)
         {
@@ -18,12 +18,7 @@ namespace Framework.Domain
 
         public IEnumerable<PersonViewModel> GetAll()
         {
-            if (_people == null)
-            {
-                _people = _personData.GetAll();
-            }
-
-            return _people;
+            return _personData.GetAll();
         }
 
         public int GetHeadCount()
@@ -33,20 +28,12 @@ namespace Framework.Domain
 
         public IEnumerable<PersonViewModel> GetByFirstName(string first)
         {
-            var people = GetAll().ByFirstName(first).ToList();
-
-            _personData.Remove(people);
-
-            return people;
+            return _personData.GetByFirstName(first);
         }
 
         public IEnumerable<PersonViewModel> GetByLastName(string last)
         {
-            var people = GetAll().ByLastName(last).ToList();
-
-            _personData.Remove(people);
-
-            return people;
+            return _personData.GetByLastName(last);
         }
 
         public PersonViewModel GetById(int id)
@@ -54,30 +41,14 @@ namespace Framework.Domain
             return _personData.GetById(id);
         }
 
-        public IEnumerable<PersonViewModel> GetByHeightAndFirst(Measurement height, string first)
+        public void Save(PersonViewModel person)
         {
-            var people = GetAll().ByFirstName(first).ByHeight(new Measurement
-            {
-                Feet = height.Feet,
-                Inches = height.Inches
-            }).ToList();
-
-            _personData.Remove(people);
-
-            return people;
+            _personData.Save(person);
         }
 
-        public IEnumerable<PersonViewModel> GetByHeight(Measurement height)
+        public void Delete(int id)
         {
-            var people = GetAll().ByHeight(new Measurement
-            {
-                Feet = height.Feet,
-                Inches = height.Inches
-            }).ToList();
-
-            _personData.Remove(people);
-
-            return people;
-        }        
+            _personData.Delete(id);
+        }
     }
 }

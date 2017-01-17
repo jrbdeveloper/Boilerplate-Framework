@@ -49,6 +49,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -60,6 +61,8 @@
   <ItemGroup>
     <Compile Include="BaseData.cs" />
     <Compile Include="CarData.cs" />
+    <Compile Include="DbScripts\DbScripts.People.cs" />
+    <Compile Include="DbScripts\ParametersBuilder.cs" />
     <Compile Include="PersonData.cs" />
     <Compile Include="ExceptionLogData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

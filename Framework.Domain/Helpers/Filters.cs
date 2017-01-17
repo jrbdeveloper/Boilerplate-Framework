@@ -25,10 +25,5 @@ namespace Framework.Domain
         {
             return list.Where(s => s.LastName.Equals(last));
         }
-
-        public static IEnumerable<PersonViewModel> ByHeight(this IEnumerable<PersonViewModel> list, Measurement height)
-        {
-            return list.Where(s => s.Height.Feet.Equals(height.Feet) && s.Height.Inches.Equals(height.Inches));
-        }
     }
 }
