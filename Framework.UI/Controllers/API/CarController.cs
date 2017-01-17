@@ -23,20 +23,5 @@ namespace Framework.UI.Controllers.API
         {
             return _carDomain.GetAll();
         }
-
-        // POST: api/Car
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/Car/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/Car/5
-        public void Delete(int id)
-        {
-        }
     }
 }

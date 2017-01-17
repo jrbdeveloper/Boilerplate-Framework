@@ -37,7 +37,7 @@ namespace Framework.Data
             try
             {
                 var sql = (person.ID > 0) ? DbScripts.People.Sql.Update : DbScripts.People.Sql.Insert;
-                var paramters = ParametersBuilder.Build(DbScripts.People.Parameters.Id, person.ID)
+                var parameters = ParametersBuilder.Build(DbScripts.People.Parameters.Id, person.ID)
                     .WithParameter(DbScripts.People.Parameters.FirstName, person.FirstName)
                     .WithParameter(DbScripts.People.Parameters.LastName, person.LastName)
                     .WithParameter(DbScripts.People.Parameters.Height, person.Height)
@@ -46,7 +46,7 @@ namespace Framework.Data
                 
                 using (Database = Connect)
                 {
-                    int id = Database.Query<int>(sql, paramters).Single();
+                    int id = Database.Query<int>(sql, parameters).Single();
                 }
             }
             catch (Exception ex)
@@ -56,10 +56,10 @@ namespace Framework.Data
 
         public void Delete(int id)
         {
-            var sql = "DELETE FROM [dbo].[People] WHERE Id=@id";
             using (Database = Connect)
             {
-                int result = Database.Query<int>(sql, id).Single();
+                var parameters = ParametersBuilder.Build(DbScripts.People.Parameters.Id, id);
+                int result = Database.Query<int>(DbScripts.People.Sql.Delete, parameters).Single();
             }
         }
         
@@ -71,8 +71,8 @@ namespace Framework.Data
                 {
                     using (Database = Connect)
                     {
-                        var paramters = ParametersBuilder.Build(DbScripts.People.Parameters.Id, id);
-                        return Database.Query<PersonViewModel>(DbScripts.People.Sql.GetById, paramters).SingleOrDefault();
+                        var parameters = ParametersBuilder.Build(DbScripts.People.Parameters.Id, id);
+                        return Database.Query<PersonViewModel>(DbScripts.People.Sql.GetById, parameters).SingleOrDefault();
                     }
                 }
                 catch (Exception ex)
@@ -92,8 +92,8 @@ namespace Framework.Data
                 {
                     using (Database = Connect)
                     {
-                        var paramters = ParametersBuilder.Build(DbScripts.People.Parameters.FirstName, first);
-                        return (List<PersonViewModel>)Database.Query<PersonViewModel>(DbScripts.People.Sql.GetByFirstName, paramters);
+                        var parameters = ParametersBuilder.Build(DbScripts.People.Parameters.FirstName, first);
+                        return (List<PersonViewModel>)Database.Query<PersonViewModel>(DbScripts.People.Sql.GetByFirstName, parameters);
                     }
                 }
                 catch (Exception ex)
@@ -113,8 +113,8 @@ namespace Framework.Data
                 {
                     using (Database = Connect)
                     {
-                        var paramters = ParametersBuilder.Build(DbScripts.People.Parameters.LastName, last);
-                        return (List<PersonViewModel>)Database.Query<PersonViewModel>(DbScripts.People.Sql.GetByLastName, paramters);
+                        var parameters = ParametersBuilder.Build(DbScripts.People.Parameters.LastName, last);
+                        return (List<PersonViewModel>)Database.Query<PersonViewModel>(DbScripts.People.Sql.GetByLastName, parameters);
                     }
                 }
                 catch (Exception ex)

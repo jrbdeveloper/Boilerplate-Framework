@@ -1,6 +1,5 @@
 ﻿using log4net;
 using System.Reflection;
-using Dapper;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;

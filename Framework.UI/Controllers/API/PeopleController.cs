@@ -23,20 +23,5 @@ namespace Framework.UI.Controllers.API
         {
             return _personDomain.GetById(id);
         }
-
-        // POST: api/People
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/People/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/People/5
-        public void Delete(int id)
-        {
-        }
     }
 }
